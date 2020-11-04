@@ -1,2 +1,2 @@
-# Slack-application-using-React.js
- Slack Application using React, Redux & Firebase 
+# Spotify-application-using-React.js
+ Spotify Application using React & Firebase 
