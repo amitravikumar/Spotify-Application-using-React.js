@@ -2,7 +2,9 @@ export const initialState = {
     user: null,
     playlists: [],
     playing: false,
-    item: null
+    item: null,
+    // ---->>>>>>>To be removed before the deployment to the firebase server
+    token: 'BQBHMbbbCWaIdEkGbC-VfY8_nqOfFnQgmgOAItY8qV2zc3',
 }
 
 const reducer = (state, action) =>{
@@ -15,6 +17,11 @@ const reducer = (state, action) =>{
             ...state,
             user: action.user
         }
+        case 'SET_TOKEN':
+            return{
+                ...state,
+                token: action.token
+            }
         default:
             return state;
     }
