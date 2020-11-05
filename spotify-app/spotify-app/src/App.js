@@ -14,8 +14,6 @@ function App() {
     const hash = getTokenFromUrl();
     window.location.hash = "";
     const _token = hash.access_token;
-    
-    console.log("The token is 👉", hash);
 
     if(_token){
       dispatch({
@@ -31,14 +29,20 @@ function App() {
           user: user
         })
       })
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLISTS',
+          playlists: playlists
+        })
+      })
     }
   }, []);
 
-  console.log('👦', user);
-  console.log('👽', token);
+
   return (
     <div className="app">
-    {token ? <Player />:<Login />}
+    {token ? <Player spotify = {spotify}/>:<Login />}
     </div>
   );
 }
